@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html ng-app="global" ng-cloak>
+	<head>
+		<meta charset="utf-8">
+		<title>Title</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    
+	    <link rel="stylesheet" type="text/css" href="vendor.css">  
+	    <link rel="stylesheet" type="text/css" href="global.css">
+
+		<script type="text/javascript" src="vendor.js"></script>
+	    <script type="text/javascript" src="global.js"></script>
+	</head>
+	<body ng-controller="MainCtrl as vm" layout="column">
+		
+		<div class="container">
+			<div class="row" ng-repeat="cours in vm.coursesList">
+				<div class="col-lg-3 list-item_time-block">
+					<div class="time-block_date">{{cours.startDate | date:'dd MMMM yyyy'}}</div>
+					<div class="time-block_time">{{cours.startTime | date:'h:mm'}} - {{cours.endTime | date:'h:mm'}}</div>
+				</div>
+				<div class="col-lg-2 list-item_avatar">
+					<img ng-src="{{cours.user.imgSrc}}">
+				</div>
+				<div class="col-lg-4">
+					{{cours.title}}
+					{{cours.user.name}}
+				</div>
+				<div class="col-lg-3">
+					buttons
+				</div>
+				<div class="col-lg-1">
+					Подробнее
+				</div>
+			</div>
+		</div>
+	</body>	
+</html>
