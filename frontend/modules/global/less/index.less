@@ -1,5 +1,38 @@
 @bg: #f2ece4;
+@success: #4cba76;
+@default: #fbf9f6;
+
+
+button, a{
+	outline: none !important;
+}
 
 body{
 	background: @bg;
 }
+
+
+.btn{
+	border: 0;
+	font-weight: bold;
+	padding: 10px 20px;
+
+	&.btn-success{
+		background: @success;	
+		
+		&:hover{
+			background: darken(@success, 10%)
+		}
+	}
+
+	&.btn-default{
+		background: @default;
+
+		&:hover{
+			background: darken(@default, 5%)
+		}
+	}
+}
+
+
+

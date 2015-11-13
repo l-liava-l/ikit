@@ -1,4 +1,4 @@
-<div class="row list-item">
+<div class="row list-item"  ng-class="{big: cours.status === 'static' && !$index, active: cours.status === 'active'}">
 	<div class="col-lg-3 list-item_time-block">
 		<div class="time-block_date">{{cours.startDate | date:'dd MMMM yyyy'}}</div>
 		<div class="time-block_time">{{cours.startTime | date:'h:mm'}} - {{cours.endTime | date:'h:mm'}}</div>
@@ -10,12 +10,42 @@
 		<div><a href="#" class="list-item_item-link">{{cours.title}}</a></div>
 		<div><span class="list-item_item-name">{{cours.user.name}}</span></div>
 		<div>
-			<span class="list-item_item-type" ng-if="cours.type === 'general'">General English</span>
-			<span class="list-item_item-type" ng-if="cours.type === 'individ'">Индивидуальный</span>
+			<span class="list-item_item-type" ng-if="cours.type === 'general'">
+				<span class="glyphicon glyphicon-bed"></span>
+				General English
+			</span>
+			<span class="list-item_item-type" ng-if="cours.type === 'individ'">
+				<span class="glyphicon glyphicon-hand-right"></span>
+				Индивидуальный
+			</span>
 		</div>
 	</div>
-	<div class="col-lg-3">
-		{{cours.status}}
+	<div class="col-lg-3 list-item_buttons">
+		<div ng-if="cours.status === 'active'">
+			<button type="button" class="btn btn-default" ng-click="cours.status = 'canceled'">
+				<span class="glyphicon glyphicon-remove"></span>
+				Отказаться
+			</button>
+			<button type="button" class="btn btn-success" ng-click="cours.status = 'finished'">Участвовать</button>
+		</div>
+
+		<div ng-if="cours.status === 'finished'">
+			<button type="button" class="btn btn-default">
+				<span class="glyphicon glyphicon-share"></span>
+				Посмотреть запись
+			</button>
+		</div>
+
+		<div ng-if="cours.status === 'static' && !$index">
+			<button type="button" class="btn btn-info">
+				<span class="glyphicon glyphicon-share"></span>
+				Перейти к просмотру
+			</button>
+		</div>
+
+		<div class="list-item_canceled-box" ng-if="cours.status === 'canceled'">
+			<span class="label label-default">Отменен</span>
+		</div>
 	</div>
 	<div class="col-lg-1 list-item_more">
 		<a href="#" class="list-item_item-link">Подробнее</a>

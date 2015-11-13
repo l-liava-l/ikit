@@ -5,6 +5,8 @@
 @name: #000000;
 @type: #959190;
 @bg: #fff;
+@success: #4cba76;
+@default: #fbf9f6;
 
 
 list-item, .list-item{
@@ -20,51 +22,101 @@ list-item, .list-item{
 		display: table-cell;
     	vertical-align:middle;
 	}
-}
 
-.list-item_time-block {
-	max-width: 230px;
-	line-height: 2.6rem;
-    padding-top: 10px;
-
-	.time-block_date {
-		font-weight: bold;
+	&.active{
+		border: 1px solid @success;
 	}
-}
 
-.list-item_main{
-	line-height: 2.6rem;
-}
+	.list-item_time-block {
+		max-width: 230px;
+		line-height: 2.6rem;
+	    padding-top: 10px;
 
-.list-item_avatar {
-	padding: 0;
-
-	&, & > img {
-		width: 80px;
-		height: 80px;
+		.time-block_date {
+			font-weight: bold;
+		}
 	}
-}
 
-.list-item_more{
+	.list-item_main{
+		line-height: 2.6rem;
+	}
+
+	.list-item_avatar {
+		padding: 0;
+
+		&, & > img {
+			width: 80px;
+			height: 80px;
+		}
+	}
+
+	.list-item_more{
+		.list-item_item-link{
+			padding-top: 30px; 
+			display: block
+		}
+	}
+
 	.list-item_item-link{
-		padding-top: 30px; 
-		display: block
+	    text-align: right;
+		font-size: 14px;
+		color: @link;
+	}
+
+	.list-item_item-name{
+		font-size: 18px;
+		color: @name;
+	}
+
+	.list-item_item-type{
+		color: @type;
+		font-size: 12px;
+	}
+
+	.list-item_buttons{
+		padding-top: 20px;
+		min-width: 320px;
+
+		& > * > *{
+			margin-left: 10px; 
+			float: right;
+		}
+	}
+
+	.list-item_canceled-box{
+		text-align: right;  
+		margin-top: 10px;
+		
+		& > *{
+			padding: 5px 10px; 
+			background: #b3aeaa;
+		}
+	}
+
+	&.big{
+		.list-item_time-block {
+			padding-top: 30px;
+		}
+
+		.list-item_main{
+			padding-top: 20px;
+		}
+
+		.list-item_avatar {
+			&, & > img {
+				width: 120px;
+				height: 120px;
+			}
+		}
+
+		.list-item_buttons{
+			padding-left: 0;
+    		margin-left: -20px;
+    		padding-top: 40px;
+		}
+
+		.list-item_item-link{
+			padding-top: 50px;
+		}
 	}
 }
-
-.list-item_item-link{
-    text-align: right;
-	font-size: 14px;
-	color: @link;
-}
-
-.list-item_item-name{
-	font-size: 18px;
-	color: @name;
-}
-
-.list-item_item-type{
-	color: @type;
-	font-size: 12px;
-}
-
