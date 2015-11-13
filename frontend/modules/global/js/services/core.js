@@ -18,9 +18,10 @@
             var list = [];
             var defaultItem = {
                 title: "Разбираем четвертый блок курса вместе...",
+                type: 'general',
                 user: {
                     name: "Cat",
-                    imgSrc: "http://finekartinka.ru/_ph/7/409493043.jpg"
+                    imgSrc: "http://oboi.tululu.org/o/13/35992/prew.jpg"
                 }
             };
 
@@ -28,6 +29,7 @@
             angular.merge(list, gen(Date.now() - 86400000 * 8, 1, defaultItem));
 
             defaultItem.status = "finished";
+            defaultItem.type = 'individ';
             angular.merge(list, gen(Date.now() - 86400000 * 10, 1, defaultItem));
 
             defaultItem.startTime = Date.now() - 1000 * 60 * 20;
