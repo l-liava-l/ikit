@@ -13,9 +13,20 @@
 	</head>
 	<body ng-controller="MainCtrl as vm" layout="column">
 		<div class="header-bar">
-			
+			<div class="container" layout="row">
+				<div class="col-lg-9">
+					<img class="header-bar_logo" src="/img/logo.png">
+				
+					<a class="header-bar_link" href="#">Курсы</a>
+					<a class="header-bar_link" href="#">Вебинары</a>
+				</div>
+				<div class="col-lg-3">
+					dsd
+				</div>
+			</div>
+
 		</div>
-		<div class="container">
+		<div class="container" style="margin-top: 40px;">
 			<h4 style="margin: 20px 0;     margin-left: -15px;">Active</h4>
 			<ng-include src="'/components/list-item/list-item.html'" 
 						ng-repeat="cours in vm.coursesList | filter:{status: 'active'}">
