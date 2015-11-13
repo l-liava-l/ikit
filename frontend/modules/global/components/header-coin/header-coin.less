@@ -1,0 +1,27 @@
+@bg: #ffecae;
+
+.header-coin{
+	max-width: 100px;
+	& > img{
+		padding-top: 5px; 
+	}
+
+	.header-coin_tooltip{
+		background: @bg;
+		height: 40px;
+		padding: 10px 15px;
+		float: right;
+		border-radius: 5px;
+		font-weight: bold;
+		position: relative;
+
+		&:before{
+		    content: ''; 
+		    position: absolute;
+		    left: -25px; 
+		    bottom: 0px;
+		   	border: 20px solid transparent;	
+		   	border-right: 20px solid @bg;
+		}
+	}
+}
