@@ -10,5 +10,7 @@
         var vm = this;
 
         vm.coursesList = core.getCoursesList();
+
+        console.log(vm.coursesList);
     }
 })();
