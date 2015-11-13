@@ -40,7 +40,7 @@
 
             function gen(start, count, attrs){
                 for(let i = 0; i < count; i++){
-                    let startDate = getPeriodBorders(start, 0).start + millisecondsInDay * (i + Math.random() * 10);
+                    let startDate = getPeriodBorders(start, 0).start + millisecondsInDay * i;
                     let startTime = attrs.startTime || startDate + millisecondsInDay / 24 * randomInteger(10, 20);
                     let endTime =  attrs.endTime || startTime + millisecondsInDay / 24;
                   
@@ -50,7 +50,7 @@
 
                     angular.merge(item, attrs);
                     
-                    if(startTime > Date.now() && Date.now() < endTime){
+                    if(startTime < Date.now() && Date.now() < endTime){
                         item.status = "active";
                     } 
 
@@ -61,6 +61,8 @@
                     else{
                         item.status = 'static'
                     }
+
+                    console.log(item.status);
                   
                     list.push(item);
                 }

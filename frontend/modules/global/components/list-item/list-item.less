@@ -4,6 +4,7 @@
 @link: #129ac7;
 @name: #000000;
 @type: #959190;
+@bg: #fff;
 
 
 list-item, .list-item{
@@ -12,6 +13,8 @@ list-item, .list-item{
 	border-top: 0;
 	border-radius: 10px;
 	height: @height;
+	background: @bg;
+	box-sizing: padding-box;
 
 	& > * {
 		display: table-cell;
